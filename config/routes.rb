@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'spaces#index'
+  resources :users, only: %i[show] do
+    resources :spaces, only: %i[create]
+  end
+
   resources :spaces, except: %i[new destroy] do
     resources :rentals, only: %i[create]
   end
-  resources :spaces, only: %i[filter] do
-  end
 
-  root to: 'spaces#index'
+  resources :spaces, only: %i[filter]
+
 end
