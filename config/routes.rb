@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   resources :spaces, only: %i[filter] do
   end
+
+  root to: 'spaces#index'
 end

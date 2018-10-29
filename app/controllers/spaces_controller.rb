@@ -1,7 +1,7 @@
 class SpacesController < ApplicationController
   # comment
   def index
-    @spaces = Spaces.all
+    @spaces = Space.all
   end
 
   def show
