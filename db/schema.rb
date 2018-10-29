@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_205254) do
+ActiveRecord::Schema.define(version: 2018_10_29_211142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_rentals_on_space_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.integer "capacity"
+    t.text "description"
+    t.integer "price"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spaces_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +51,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_205254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rentals", "spaces"
+  add_foreign_key "rentals", "users"
+  add_foreign_key "spaces", "users"
 end
