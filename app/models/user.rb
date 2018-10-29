@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :spaces
   has_many :rentals
+
+  mount_uploader :photo, PhotoUploader
 end

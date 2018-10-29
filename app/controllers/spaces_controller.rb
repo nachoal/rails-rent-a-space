@@ -7,4 +7,10 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
   end
+
+  private
+
+  def space_params
+  params.require(:space).permit(:address, :city, :country, :capacity, :description, :price, :photo)
+  end
 end

@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #to store secrects
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
