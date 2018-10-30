@@ -9,6 +9,19 @@ class SpacesController < ApplicationController
     @rental = Rental.new
   end
 
+  def edit
+    @space = Space.find(params[:id])
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    if @flat.update(flat_params)
+      redirect_to @flat, notice: "Flat succesfully updated!"
+    else
+      render :edit
+    end
+  end
+
   def create
     @user = User.find(params[:user_id])
     @space = @user.spaces.new(space_params)
@@ -22,7 +35,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:address, :city, :country,
+    params.require(:space).permit(:name, :address, :city, :country,
                                   :capacity, :description, :price, :photo)
   end
 end

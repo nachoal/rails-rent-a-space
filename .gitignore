@@ -34,3 +34,4 @@ TODO.md
 yarn-debug.log*
 .yarn-integrity
 .env*
+.env*
