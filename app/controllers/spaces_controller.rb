@@ -6,6 +6,7 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
+    @rental = Rental.new
   end
 
   private
