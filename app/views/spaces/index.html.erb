@@ -6,4 +6,9 @@
   </div>
 </div>
 
-<%= render 'shared/card_space' %>
+<div class="container">
+  <h1>All our venues (<%= @spaces.count %>)</h1>
+  <div class="row">
+  <%= render 'shared/card_space' %>
+  </div>
+</div>
