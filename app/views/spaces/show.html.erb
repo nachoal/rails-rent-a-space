@@ -1,0 +1,27 @@
+<div class="banner banner-show-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <a class="btn btn-primary btn-lg">Share</a>
+    <a class="btn btn-primary btn-lg">Bookmark</a>
+    <a class="btn btn-primary btn-lg">See pictures</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h1><%= @space.id %></h1>
+      <h2><%= @space.city %></h2>
+      <p><%= @space.capacity %></p>
+      <p><%= @space.price %></p>
+      <p><%= @space.description %></p>
+    </div>
+    <div class="col-xs-6">
+      <%= simple_form_for([@space, @rental]) do |f| %>
+      <%= f.input :id %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit %>
+    <% end %>
+    </div>
+  </div>
+</div>
