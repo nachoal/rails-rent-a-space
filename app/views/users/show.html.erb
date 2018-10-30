@@ -14,10 +14,15 @@
     <% if @user.spaces.any? %>
       <h3>Places that you have for rent:</h3>
       <ul>
-        <% @spaces.each do |space| %>
-          <li><p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p></li>
+        <% @user.spaces[0..(@spaces.size - 1)].each do |space| %>
+          <li>
+            <p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p>
+            <%= link_to("Edit", edit_user_space_path ) %>
+          </li>
         <% end %>
       </ul>
+    <% else  %>
+      <p>You have not created any spaces for rent. You should create one!</p>
     <% end  %>
   </div>
   <div class="col-md-6">

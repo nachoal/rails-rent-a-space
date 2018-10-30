@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @spaces = @user.spaces
-    @space = @user.spaces.new
+    @space = Space.new
   end
 
   private
