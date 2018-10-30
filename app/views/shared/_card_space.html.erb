@@ -1,9 +1,18 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
+<div class="row">
+  <% @spaces.each do |space| %>
+  <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>);">
+      <div class="card-description">
+        <h2><%= space.name  %></h2>
+        <p><%= space.city %><%= space.country %></p>
+      </div>
+      <img class="card-user" src=<%= users[id: space.user_id].photo.file.nil? ? "https://via.placeholder.com/150" : cloudinary_url(users[id: space.user_id].photo) %>>
+      <a class="card-link" href="#" ></a>
+    </div>
   </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
+  <% end %>
 </div>
+
+
+
+
