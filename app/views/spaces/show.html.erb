@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h1><%= @space.id %></h1>
+      <h1><%= @space.name %></h1>
       <h2><%= @space.city %></h2>
       <p><%= @space.capacity %></p>
       <p><%= @space.price %></p>
@@ -18,7 +18,7 @@
     <div class="col-xs-6">
       <%= simple_form_for([@space, @rental]) do |f| %>
       <%= f.input :id %>
-      <%= f.input :start_date %>
+      <%= f.input :start_date, wrapper_html: { class: 'flex-select' } %>
       <%= f.input :end_date %>
       <%= f.submit %>
     <% end %>
