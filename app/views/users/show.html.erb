@@ -1,1 +1,19 @@
 <h2><%= @user.email %></h2>
+<h3>My rented spaces:</h3>
+<ul>
+  <% if @user.rentals.any? %>
+    <% @user.rentals.each do |rental| %>
+    <li><%= rental %></li>
+    <% end %>
+  <% else %>
+    <p>You don't have any rented spaces yet. You should rent one! </p>
+  <% end %>
+</ul>
+<% if @user.spaces.any? %>
+  <h3>Places that you have for rent:</h3>
+  <ul>
+    <% @spaces.each do |space| %>
+      <li><p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p></li>
+    <% end %>
+  </ul>
+<% end  %>
