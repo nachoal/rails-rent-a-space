@@ -12,9 +12,9 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag "application" %>
