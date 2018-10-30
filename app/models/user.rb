@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :rentals
 
   mount_uploader :photo, PhotoUploader
+
+  def photo_or_default
+    photo.file.nil? ? "https://res.cloudinary.com/oulrij/image/upload/v1540927173/auczgzyhap7oluqylboo.jpg" : photo
+  end
 end
