@@ -2,12 +2,12 @@
   <div class="banner-content">
     <h1>Find the right venue for your event</h1>
     <p>The best venues for conferences, meetings, wedding and parties.</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
+    <%= link_to "Find now", root_path(anchor: "v_list"), class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 
 <div class="container">
-  <h1>All our venues (<%= @spaces.count %>)</h1>
+  <h2 id="v_list">All our venues (<%= @spaces.count %>)</h2>
   <div class="row">
   <%= render 'shared/card_space' %>
   </div>

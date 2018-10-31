@@ -1,11 +1,11 @@
 class SpacesController < ApplicationController
-  # comment
+  before_action :set_space, only: [:show]
+
   def index
-    @spaces = Space.all
+    @spaces = Space.search(params[:search])
   end
 
   def show
-    @space = Space.find(params[:id])
     @rental = Rental.new
   end
 
@@ -13,7 +13,7 @@ class SpacesController < ApplicationController
     @user = User.find(params[:user_id])
     @space = @user.spaces.new(space_params)
     if @space.save
-      redirect_to @user, notice: 'Your space was succesfully created!'
+      redirect_to @user, notice: 'Your space was successfully created!'
     else
       render @user
     end
@@ -21,8 +21,12 @@ class SpacesController < ApplicationController
 
   private
 
+  def set_space
+    @space = Space.find(params[:id])
+  end
+
   def space_params
-    params.require(:space).permit(:address, :city, :country,
-                                  :capacity, :description, :price, :photo)
+    params.require(:space).permit(:name, :address, :city, :country,
+                                  :capacity, :description, :price, :photo, :search)
   end
 end
