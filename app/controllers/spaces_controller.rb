@@ -5,6 +5,15 @@ class SpacesController < ApplicationController
   def index
     # @spaces = Space.search(params[:search])
     @spaces = policy_scope(Space).search(params[:search])
+
+    @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
+
+    @markers = @geo_spaces.map do |venue|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+      }
+    end
   end
 
   def show

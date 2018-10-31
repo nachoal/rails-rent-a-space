@@ -67,5 +67,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #to store secrects
 gem 'dotenv-rails', groups: [:development, :test]
 
+#photo handling
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+
+#geocoding
+gem 'geocoder'
