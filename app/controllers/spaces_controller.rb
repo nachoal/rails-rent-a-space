@@ -19,14 +19,13 @@ class SpacesController < ApplicationController
   def show
     authorize @space
     @rental = Rental.new
-    @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
 
-    @markers = @geo_spaces.map do |venue|
-      {
-        lat: venue.latitude,
-        lng: venue.longitude,
-      }
-    end
+    @markers = [
+                {
+                  lat: @space.latitude,
+                  lng: @space.longitude,
+                }
+                ]
   end
 
   def edit
