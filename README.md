@@ -5,10 +5,11 @@
 
 ## 🚨 PENDING:
 
-* [ ] Sophie: Finish booking functionality on space#show page
-* [ ] upload branch to github and make a pull request for master branch
-* [ ] Have authorization for the renting of a space **(waiting for sophie to finish)**
-* [ ] merge branch to master and check for conflicts
+* [ ] **Sophie:** Finish booking functionality on space#show page
+* [ ] **Guillaume:** Implement GMAPS to our App
+* [ ] **Nacho:** Have authorization for the renting of a space **(waiting for sophie to finish)**
+* [ ] **Nacho:** upload branch to github and make a pull request for master branch
+* [ ] **Nacho:** merge branch to master and check for conflicts
 
 
 ## ✅ DONE:
