@@ -5,16 +5,15 @@
 
 ## 🚨 PENDING:
 
-* [ ] **Sophie:** Finish booking functionality on space#show page
-* [ ] **Guillaume:** Add pending form fields to the User sign up forms
+* [ ] Navbar avatar should display user avatar if there's one 
 * [ ] **Guillaume:** Implement GMAPS to our App
-* [ ] **Nacho:** Have authorization for the renting of a space **(waiting for sophie to finish)**
-* [ ] **Nacho:** upload branch to github and make a pull request for master branch
-* [ ] **Nacho:** merge branch to master and check for conflicts
 
 
 ## ✅ DONE:
 
+* [X] Have authorization for the renting of a space
+* [X] Add pending form fields to the User sign up forms
+* [X] Finish booking functionality on space#show page
 * [X] add pundit for space creation and user pages
 * [X] the price of the rental should be the price of the space. The rental should have a colum price which is assigned to the space price on its creation
 * [X] Add Update, Delete links for the user show 
