@@ -22,8 +22,8 @@
 * [X] .env file
 * [X] Create seed file and share it with team
 * [X] Example done
-* [X] Guillaume: Filters on the index page
-* [X] Guillaume: Signup and login forms
+* [X] Filters on the index page
+* [X] Signup and login forms
 
 # 📝 Notes:
 
