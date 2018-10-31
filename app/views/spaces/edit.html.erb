@@ -15,7 +15,7 @@
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit, class: "btn btn-success" %>
-          <%= link_to("Cancel", user_path, class: "btn btn-warning") %>
+          <%= link_to("Cancel", user_path(current_user), class: "btn btn-warning") %>
         <% end %>
     </div>
   </div>
