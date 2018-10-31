@@ -3,7 +3,7 @@
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>);">
     <div class="card-description">
       <h2><%= space.name  %></h2>
-      <p><%= space.city %><%= space.country %></p>
+      <p><%= space.city %>, <%= space.country %></p>
     </div>
     <img class="card-user" src=<%= User.find(space.user_id).photo.file.nil? ? "https://via.placeholder.com/150" : cloudinary_url(User.find(space.user_id).photo) %>>
     <%= link_to "", space_path(space), { class: "card-link" } %>
