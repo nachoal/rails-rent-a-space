@@ -1,4 +1,4 @@
-<div class="banner banner-half-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner banner-half-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= @space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(@space.photo) %>); background-position: center;">
   <div class="banner-content">
     <a class="btn btn-primary btn-lg">Share</a>
     <a class="btn btn-primary btn-lg">Bookmark</a>
@@ -8,9 +8,10 @@
 
 <div class="container spaces">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-9">
       <h3><%= @space.name %></h3>
-      <h6><%= @space.city %></h6>
+      <h6><%= @space.address %></h6>
+      <h6><%= @space.city %>,&nbsp;<%= @space.country %></h6>
       <div>
         <ul>
           <li><%= icon('fas', 'flag') %><%=  @space.capacity %></li>
@@ -24,25 +25,30 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-6 rentals-box">
+    <div class="col-xs-3 rentals-box">
       <div class="rentals-form">
         <div class="rentals-form-title">
-          <h2>MXN <%= @space.price %> per night</h2>
+          <h2 class="space_price">MXN <%= @space.price %> per night</h2>
         </div>
         <div>
           <%= simple_form_for([@space, @rental]) do |f| %>
           <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
           <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-          <%= f.submit %>
+          <%= f.button :submit, :class => "btn btn-primary" %>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="col-xs-6">
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+      ></div>
   </div>
 </div>
