@@ -14,10 +14,15 @@
     <% if @user.spaces.any? %>
       <h3>Places that you have for rent:</h3>
       <ul>
-        <% @spaces.each do |space| %>
-          <li><p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p></li>
+        <% @user.spaces[0..(@spaces.size - 1)].each do |space| %>
+          <li>
+            <p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p>
+            <p><%= link_to("Edit", edit_user_space_path(@user, space)) %></p>
+          </li>
         <% end %>
       </ul>
+    <% else  %>
+      <p>You have not created any spaces for rent. You should create one!</p>
     <% end  %>
   </div>
   <div class="col-md-6">
@@ -26,6 +31,7 @@
       <%= simple_form_for [@user, @space] do |f| %>
         <%= f.input :name %>
         <%= f.input :address %>
+        <%= f.input :name %>
         <%= f.input :city %>
         <%= f.input :country %>
         <%= f.input :capacity %>
