@@ -1,4 +1,4 @@
-<div class="banner banner-show-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner banner-half-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
   <div class="banner-content">
     <a class="btn btn-primary btn-lg">Share</a>
     <a class="btn btn-primary btn-lg">Bookmark</a>
@@ -6,22 +6,37 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container spaces">
   <div class="row">
     <div class="col-xs-6">
-      <h1><%= @space.name %></h1>
-      <h2><%= @space.city %></h2>
-      <p><%= @space.capacity %></p>
-      <p><%= @space.price %></p>
-      <p><%= @space.description %></p>
+      <h3><%= @space.name %></h3>
+      <h6><%= @space.city %></h6>
+      <div>
+        <ul>
+          <li><%= icon('fas', 'flag') %><%=  @space.capacity %></li>
+          <li><%= icon('fas','bath') %><%= @space.bathrooms %></li>
+          <li><%= icon('fas','wifi') %><%= @space.wifi ? 'Yes' : 'No' %></li>
+          <li><%= icon('fas','broom') %><%= @space.cleaning ? 'Yes' : 'No' %></li>
+        </ul>
+        <div>
+          <h5><strong>Description</strong></h5>
+          <p><%= @space.description %></p>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-6">
-      <%= simple_form_for([@space, @rental]) do |f| %>
-      <%= f.input :id %>
-      <%= f.input :start_date, wrapper_html: { class: 'flex-select' } %>
-      <%= f.input :end_date %>
-      <%= f.submit %>
-    <% end %>
+    <div class="col-xs-6 rentals-box">
+      <div class="rentals-form">
+        <div class="rentals-form-title">
+          <h2>MXN <%= @space.price %> per night</h2>
+        </div>
+        <div>
+          <%= simple_form_for([@space, @rental]) do |f| %>
+          <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+          <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+          <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
