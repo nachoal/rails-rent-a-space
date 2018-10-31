@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    authorize @user
     @spaces = @user.spaces
-    @space = @user.spaces.new
-  end
-
-  private
-
-  def space_params
-    params.require(:space).permit(:address, :city, :country,
-                                 :capacity, :description, :price, :photo)
+    @space = Space.new
   end
 end

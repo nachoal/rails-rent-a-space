@@ -23,6 +23,9 @@
 /public/assets
 .byebug_history
 
+# Ignore the TODO file
+TODO.md
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /public/packs

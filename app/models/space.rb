@@ -8,4 +8,12 @@ class Space < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :country, presence: true
+
+  def self.search(search)
+    if search
+      self.where('name LIKE :name OR description LIKE :name', :name => "%#{search}%")
+    else
+      Space.all
+    end
+  end
 end

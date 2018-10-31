@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2018_10_31_001858) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_001858) do
     t.bigint "space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["space_id"], name: "index_rentals_on_space_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 2018_10_31_001858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

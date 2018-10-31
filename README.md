@@ -1,26 +1,34 @@
 
-# TO DOS FOR RAILS RENT A SPACE
+# ⏳ TO DO'S FOR RAILS RENT A SPACE 
 
-### DEADLINE: 2PM OCT 31
+### 🔥 DEADLINE: 2PM OCT 31 🔥
 
-## PENDING:
+## 🚨 PENDING:
 
-* [ ] NACHO:  Add Update, Delete links for the user show 
-* [ ] NACHO: add colums to Users address city country phone 
-* [ ] NACHO: the price of the rental should be the price of the space
-* [ ] .env file
-* [ ] Add more 
-## DONE:
+* [ ] **Sophie:** Finish booking functionality on space#show page
+* [ ] **Guillaume:** Add pending form fields to the User sign up forms
+* [ ] **Guillaume:** Implement GMAPS to our App
+* [ ] **Nacho:** Have authorization for the renting of a space **(waiting for sophie to finish)**
+* [ ] **Nacho:** upload branch to github and make a pull request for master branch
+* [ ] **Nacho:** merge branch to master and check for conflicts
 
+
+## ✅ DONE:
+
+* [X] add pundit for space creation and user pages
+* [X] the price of the rental should be the price of the space. The rental should have a colum price which is assigned to the space price on its creation
+* [X] Add Update, Delete links for the user show 
+* [X] add colums to Users address city country phone 
+* [X] the price of the rental should be the price of the space
+* [X] .env file
 * [X] Create seed file and share it with team
 * [X] Example done
-* [ ] Guillaume: Filters on the index page
-* [ ] Guillaume: Signup and login forms
-* [ ] pending
+* [X] Filters on the index page
+* [X] Signup and login forms
 
-# Notes:
+# 📝 Notes:
 
-# Rent A Space
+## Rent A Space
 
 * Ruby version 
   ruby '2.4.4'
