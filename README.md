@@ -6,6 +6,7 @@
 ## 🚨 PENDING:
 
 * [ ] **Sophie:** Finish booking functionality on space#show page
+* [ ] **Guillaume:** Add pending form fields to the User sign up forms
 * [ ] **Guillaume:** Implement GMAPS to our App
 * [ ] **Nacho:** Have authorization for the renting of a space **(waiting for sophie to finish)**
 * [ ] **Nacho:** upload branch to github and make a pull request for master branch
