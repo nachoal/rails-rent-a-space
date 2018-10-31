@@ -1,3 +1,4 @@
+Rental.destroy_all
 Space.destroy_all
 
 executions = 6
@@ -19,4 +20,4 @@ executions.times do
   space.save!
 end
 
-puts "#{executions} space created successfully!"
+puts "#{executions} spaces created successfully!"
