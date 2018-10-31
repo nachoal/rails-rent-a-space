@@ -5,8 +5,8 @@
       
         <h3>Edit your rental:</h3>
         <%= simple_form_for [@user, @space] do |f| %>
-          <%= f.input :address %>
           <%= f.input :name %>
+          <%= f.input :address %>
           <%= f.input :city %>
           <%= f.input :country %>
           <%= f.input :capacity %>

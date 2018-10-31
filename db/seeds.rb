@@ -15,7 +15,6 @@ executions.times do
     wifi: true,
     bathrooms: 2,
     cleaning: false
-
   )
   space.save!
 end
