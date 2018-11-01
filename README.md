@@ -1,7 +1,7 @@
 
 # ⏳ TO DO'S FOR RAILS RENT A SPACE 
 
-### 🔥 DEADLINE: 2PM OCT 31 🔥
+### 🔥 DEADLINE: 7PM NOV 1 🔥
 
 ## 🚨 PENDING:
 
