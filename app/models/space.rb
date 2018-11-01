@@ -9,7 +9,7 @@ class Space < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
 
-  geocoded_by :address
+  geocoded_by :address_geo
   after_validation :geocode, if: :will_save_change_to_address?
 
   def self.search(search)
@@ -20,7 +20,7 @@ class Space < ApplicationRecord
     end
   end
 
-  def address
-    [street, city, country].compact.join(', ')
+  def address_geo
+    [address, city, country].compact.join(', ')
   end
 end

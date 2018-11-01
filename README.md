@@ -6,11 +6,10 @@
 ## 🚨 PENDING:
 
 * [ ] Navbar avatar should display user avatar if there's one 
-* [ ] **Guillaume:** Implement GMAPS to our App
-
 
 ## ✅ DONE:
 
+* [X] Implement GMAPS to our App
 * [X] Have authorization for the renting of a space
 * [X] Add pending form fields to the User sign up forms
 * [X] Finish booking functionality on space#show page

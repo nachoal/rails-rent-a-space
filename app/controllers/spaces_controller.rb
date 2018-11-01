@@ -10,8 +10,8 @@ class SpacesController < ApplicationController
 
     @markers = @geo_spaces.map do |venue|
       {
-        lat: flat.latitude,
-        lng: flat.longitude#,
+        lat: venue.latitude,
+        lng: venue.longitude,
       }
     end
   end
@@ -19,6 +19,13 @@ class SpacesController < ApplicationController
   def show
     authorize @space
     @rental = Rental.new
+
+    @markers = [
+                {
+                  lat: @space.latitude,
+                  lng: @space.longitude,
+                }
+                ]
   end
 
   def edit

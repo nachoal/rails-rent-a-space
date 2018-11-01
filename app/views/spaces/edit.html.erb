@@ -2,11 +2,11 @@
 <div class="container">
   <div class="row">
   <div class="col-md-12">
-      
+
         <h3>Edit your rental:</h3>
         <%= simple_form_for [@user, @space] do |f| %>
-          <%= f.input :address %>
           <%= f.input :name %>
+          <%= f.input :address %>
           <%= f.input :city %>
           <%= f.input :country %>
           <%= f.input :capacity %>
@@ -15,7 +15,7 @@
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit, class: "btn btn-success" %>
-          <%= link_to("Cancel", user_path, class: "btn btn-warning") %>
+          <%= link_to("Cancel", user_path(current_user), class: "btn btn-warning") %>
         <% end %>
     </div>
   </div>
