@@ -11,6 +11,7 @@
 * [ ] **Guillaume:** Improve search page and structure 
   * [ ] Navbar avatar should display user avatar if there's one 
 * [ ] **Sophie:** Form logic to display appropiate form (3 different display)
+* [ ] **Andy:** Create static page (About) with info of the app features and team (like on kitt's profile page)
 ## ✅ DONE:
 
 * [X] Implement GMAPS to our App
