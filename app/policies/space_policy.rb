@@ -19,4 +19,8 @@ class SpacePolicy < ApplicationPolicy
   def create?
     record.user == user
   end
+
+  def search?
+    true
+  end
 end
