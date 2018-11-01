@@ -73,3 +73,6 @@ gem 'carrierwave', '~> 1.2'
 
 #geocoding
 gem 'geocoder'
+
+#Advanced Search
+gem 'pg_search'
