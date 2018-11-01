@@ -25,6 +25,7 @@
 
 # Ignore the TODO file
 TODO.md
+db/seeds.rb
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
