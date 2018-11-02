@@ -1,4 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -12,7 +14,7 @@
 
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
-                required: false
+                required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
@@ -21,12 +23,34 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo,
+                     autofocus: true,
+                     :input_html => { value: '#{@photo}'} %>
+          <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :address,
+                     required: false,
+                     input_html: { autocomplete: "address",
+                     placeholder: 'your address' } %>
+    <%= f.input :city,
+                     required: false,
+                     input_html: { autocomplete: "City",
+                     placeholder: 'your city' } %>
+    <%= f.input :country,
+                 required: false,
+                 input_html: { autocomplete: "country" },
+                 placeholder: 'your country' %>
+    <%= f.input :phone,
+                     required: false,
+                     input_html: { autocomplete: "phone" },
+                     placeholder: 'your phone number' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
+  </div>
+</div>
 
 <h3>Cancel my account</h3>
 

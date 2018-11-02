@@ -1,6 +1,6 @@
 class Space < ApplicationRecord
   belongs_to :user
-
+  has_many :rentals
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
@@ -18,6 +18,10 @@ class Space < ApplicationRecord
     else
       Space.all
     end
+  end
+
+  def rented?
+    !rentals.empty?
   end
 
   def address_geo
