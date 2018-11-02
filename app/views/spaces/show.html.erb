@@ -26,10 +26,12 @@
     </div>
   </div>
   <div class="col-xs-3 rentals-box">
-    <% if current_user || current_user.nil? %>
-      <%= render 'rent_space_form' %>
-    <% else @space.user == current_user %>
+    <% if user_signed_in? && @space.user == current_user %>
       <%= render 'rented_space_edit_form' %>
+    <% elsif user_signed_in?  %>
+      <%= render 'rent_space_form' %>
+    <% else  %>
+      <%=  render 'rent_space_form' %>
     <% end %>
   </div>
 </div>
