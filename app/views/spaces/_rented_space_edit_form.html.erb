@@ -1,6 +1,6 @@
  <div class="rentals-form">
     <div class="rentals-form-title">
-      <h2 class="space_price">MXN <%= @space.price %> per night</h2>
+      <h2 class="space_price">MXN <%= number_with_delimiter(@space.price, delimiter: ',') %> per night</h2>
     </div>
   <div>
     <%= simple_form_for([@space, @rental]) do |f| %>

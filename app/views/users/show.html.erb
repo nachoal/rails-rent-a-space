@@ -8,11 +8,10 @@
           <div class="panel-title">Account Info:</div>
         </div>
         <div class="panel-body">
-          <p>Address:   <%= @user.address.nil? ? "<i class='fas fa-times-circle' style='background-color:red;'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
-          <p>Photo:   <%= @user.photo.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
-          <p>City:   <%= @user.city.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
-          <p>Country:   <%= @user.country.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
-          <p>Phone:   <%= @user.phone.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+          <p><%= @user.address.nil? ? "<i class='fas fa-times-circle' style='background-color:red;'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %> Address: <%= @user.address %>  </p>
+          <p><%= @user.city.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %> City: <%= @user.city %>   </p>
+          <p><%= @user.country.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %> Country: <%= @user.country%> </p>
+          <p> <%= @user.phone.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %> Phone: <%= @user.phone%>  </p>
         </div>
       </div>
       <div class="btn btn-block btn-success btn-lg"><a href="#new-place" style="color:white">Add a place to rent</a></div>
