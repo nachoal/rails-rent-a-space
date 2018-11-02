@@ -19,28 +19,21 @@
           <li><%= icon('fas','wifi') %><%= @space.wifi ? 'Yes' : 'No' %></li>
           <li><%= icon('fas','broom') %><%= @space.cleaning ? 'Yes' : 'No' %></li>
         </ul>
-        <div>
-          <h5><strong>Description</strong></h5>
-          <p><%= @space.description %></p>
-        </div>
       </div>
-    </div>
-    <div class="col-xs-3 rentals-box">
-      <div class="rentals-form">
-        <div class="rentals-form-title">
-          <h2 class="space_price">MXN <%= @space.price %> per night</h2>
-        </div>
-        <div>
-          <%= simple_form_for([@space, @rental]) do |f| %>
-          <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-          <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-          <%= f.button :submit, :class => "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
+    <div>
+      <h5><strong>Description</strong></h5>
+      <p><%= @space.description %></p>
     </div>
   </div>
+  <div class="col-xs-3 rentals-box">
+    <% if current_user || current_user.nil? %>
+      <%= render 'rent_space_form' %>
+    <% else @space.user == current_user %>
+      <%= render 'rented_space_edit_form' %>
+    <% end %>
+  </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-9">

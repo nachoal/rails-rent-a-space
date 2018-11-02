@@ -1,0 +1,13 @@
+<div class="rentals-form">
+  <div class="rentals-form-title">
+    <h2 class="space_price">MXN <%= @space.price %> per night</h2>
+    </div>
+  </div>
+  <div>
+    <%= simple_form_for([@space, @rental]) do |f| %>
+    <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+    <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
+    <%= f.button :submit, "Book", :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
