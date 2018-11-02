@@ -6,11 +6,10 @@
 ## 🚨 PENDING:
 
 * [ ] **Andy:** Create static page (About) with info of the app features and team (like on kitt's profile page)
-* [ ] **Sophie:** Improve our website design
-* [ ] **Everyone:** Create a good demo user story
+* [ ] **Sophie:** Improve our website design.
+* [ ] **Everyone:** Create good demo user stories.
 * [ ] **Everyone:** Practice demo! 
 * [ ] **Everyone:** BE HAPPY 😄
-
 ## ✅ DONE:
 
 * [X] Form logic to display appropiate form (3 different display)
