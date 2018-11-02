@@ -1,0 +1,10 @@
+ <div class="rentals-form">
+    <div class="rentals-form-title">
+      <h2 class="space_price">MXN <%= @space.price %> per night</h2>
+    </div>
+  <div>
+    <%= simple_form_for([@space, @rental]) do |f| %>
+    <%= f.button :submit, "Edit rental", :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -20,6 +20,10 @@ class SpacePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def about?
+    true
+  end
+
   def search?
     true
   end

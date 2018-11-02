@@ -1,11 +1,5 @@
 <div class="banner banner-half-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= @space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(@space.photo) %>); background-position: center;">
-  <div class="banner-content">
-    <a class="btn btn-primary btn-lg">Share</a>
-    <a class="btn btn-primary btn-lg">Bookmark</a>
-    <a class="btn btn-primary btn-lg">See pictures</a>
-  </div>
 </div>
-
 <div class="container spaces">
   <div class="row bottom-margin-sm">
     <div class="col-xs-9">
@@ -19,31 +13,44 @@
           <li><%= icon('fas','wifi') %><%= @space.wifi ? 'Yes' : 'No' %></li>
           <li><%= icon('fas','broom') %><%= @space.cleaning ? 'Yes' : 'No' %></li>
         </ul>
-        <div>
-          <h5><strong>Description</strong></h5>
-          <p><%= @space.description %></p>
-        </div>
       </div>
-    </div>
-    <div class="col-xs-3 rentals-box">
-      <div class="rentals-form">
-        <div class="rentals-form-title">
-          <h2 class="space_price">MXN <%= @space.price %> per night</h2>
-        </div>
-        <div>
-          <%= simple_form_for([@space, @rental]) do |f| %>
-          <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-          <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-          <%= f.button :submit, :class => "btn btn-primary" %>
-          <% end %>
+    <div>
+      <h5><strong>Description</strong></h5>
+      <p><%= @space.description %></p>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <h4><strong> Venue owner</strong></h4>
+          <div class="col-md-1">
+            <%= image_tag image_path(@space.user.photo_or_default), class: "img-circle", style:"width:100px;"%>
+          </div>
+          <div class="col-md-11">
+            <div class="wrapper" style="margin-left: 15px;">
+              <p><i class="fas fa-home"></i> Renting <%= @space.user.spaces.size %> venues</p>
+              <p>City: <%= @space.user.city %></p>
+              <p>Country: <%= @space.user.country %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="col-xs-3 rentals-box">
+    <% if user_signed_in? && @space.user == current_user %>
+      <%= render 'rented_space_edit_form' %>
+    <% elsif user_signed_in?  %>
+      <%= render 'rent_space_form' %>
+    <% else  %>
+      <%=  render 'rent_space_form' %>
+    <% end %>
+  </div>
 </div>
 <div class="container">
   <div class="row">
+
     <div class="col-xs-9">
+      <hr>
+      <h5>Exact location information is provided after a booking is confirmed.</h5>
       <div
         id="map"
         style="width: 100%;
