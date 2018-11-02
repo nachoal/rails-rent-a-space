@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   end
 
   resources :spaces, only: %i[filter]
-
+  get 'about', to: 'static_pages#about'
 end
