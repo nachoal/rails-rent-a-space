@@ -1,0 +1,32 @@
+<div class="main-search">
+  <div class="search-results">
+    <div class="row">
+      <div class="search-bar">
+        <%= form_tag(search_spaces_path, {method: 'get'}) do %>
+          <div class="row">
+            <div class="col-xs-10">
+              <%= text_field_tag :search,
+                params[:search],
+                class: "form-control",
+                placeholder: "Find a venue (by name, description, city, country or capacity)"
+              %>
+            </div>
+            <div class="col-xs-2">
+              <%= submit_tag 'Search',
+                class: "btn btn-primary"
+              %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <%= render 'shared/long_card_space' %>
+    </div>
+  </div>
+
+  <div
+    id="map" class="map-results"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
+</div>

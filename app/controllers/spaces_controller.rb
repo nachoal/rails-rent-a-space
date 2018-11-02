@@ -1,19 +1,10 @@
 class SpacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show search]
   before_action :set_space, only: [:show]
 
   def index
     # @spaces = Space.search(params[:search])
-    @spaces = policy_scope(Space).search(params[:search])
-
-    @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
-
-    @markers = @geo_spaces.map do |venue|
-      {
-        lat: venue.latitude,
-        lng: venue.longitude,
-      }
-    end
+    @spaces = policy_scope(Space).all
   end
 
   def show
@@ -51,6 +42,25 @@ class SpacesController < ApplicationController
       redirect_to @user, notice: 'Your space was successfully created!'
     else
       render @user
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @spaces = Space.search_by_name_description_city_and_country(params[:search])
+    else
+      @spaces = Space.all
+      # render :index
+    end
+
+    authorize @spaces
+    @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
+
+    @markers = @geo_spaces.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+      }
     end
   end
 

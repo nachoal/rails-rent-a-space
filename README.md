@@ -1,12 +1,17 @@
 
 # ⏳ TO DO'S FOR RAILS RENT A SPACE 
 
-### 🔥 DEADLINE: 2PM OCT 31 🔥
+### 🔥 DEADLINE: 7PM NOV 1 🔥
 
 ## 🚨 PENDING:
 
-* [ ] Navbar avatar should display user avatar if there's one 
-
+* [ ] **Nacho:** Change User show page 
+  * [ ] Add my places (as a renter) row with cards on user show page
+  * [ ] Add rentals row (as a tenant) with cards on user show page 
+* [ ] **Guillaume:** Improve search page and structure 
+  * [ ] Navbar avatar should display user avatar if there's one 
+* [ ] **Sophie:** Form logic to display appropiate form (3 different display)
+* [ ] **Andy:** Create static page (About) with info of the app features and team (like on kitt's profile page)
 ## ✅ DONE:
 
 * [X] Implement GMAPS to our App
