@@ -23,4 +23,8 @@ class SpacePolicy < ApplicationPolicy
   def about?
     true
   end
+
+  def search?
+    true
+  end
 end
