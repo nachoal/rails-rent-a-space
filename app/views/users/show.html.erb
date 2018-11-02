@@ -40,7 +40,7 @@
       </div>
       <h4>Spaces that you have for rent (<%= @user.spaces.size %>)</h4>
       <% @user.spaces.each do |space| %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), 
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
             url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>);">
           <div class="card-category">
             <% if space.rented? %>
@@ -54,10 +54,10 @@
             <p><%= space.description %></p>
           </div>
           <%= space.rented? ? cl_image_tag(space.rentals[0].user.photo, class: "card-user") : "" %>
-          <a class="card-link" href="#" ></a>
+          <%= link_to("", space_path(space), class: "card-link") %>
         </div>
       <% end %>
-    </div>  
+    </div>
   </div>
 </div>
 <div class="container">
