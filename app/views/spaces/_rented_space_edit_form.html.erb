@@ -2,12 +2,9 @@
     <div class="rentals-form-title">
       <h2 class="space_price">MXN <%= @space.price %> per night</h2>
     </div>
-    <div>
-      <p>Start date: <%= @rental.start_date %> </p>
-      <p>End date: <%= @rental.end_date %></p>
-    </div>
-    <div>
-      <h2>Total price calculation: MXN <%= @total_price %></h2>
-    </div>
+  <div>
+    <%= simple_form_for([@space, @rental]) do |f| %>
+    <%= f.button :submit, "Edit rental", :class => "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
