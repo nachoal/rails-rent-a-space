@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :rentals, only: %i[create]
   end
 
+  resources :spaces, only: %i[filter]
+  get 'about', to: 'static_pages#about'
   get '/search', to: 'spaces#search', as: :search_spaces
 end
