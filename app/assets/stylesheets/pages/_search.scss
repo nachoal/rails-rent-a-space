@@ -1,0 +1,19 @@
+.search-bar{
+  padding: 15px 30px;
+}
+
+.main-search {
+  display: flex;
+}
+
+.search-results{
+  padding: 0 30px;
+  flex: 1 1 auto;
+}
+
+.map-results {
+  flex: 0 0 35vw;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0px !important;
+}

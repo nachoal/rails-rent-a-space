@@ -1,0 +1,28 @@
+<% @spaces.each do |space| %>
+  <%= link_to space_path(space) do %>
+    <div class="flex-card">
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>); border-top-left-radius: 5px; border-bottom-left-radius: 5px">
+      </div>
+
+      <div class="card-details">
+        <h2><%= space.name  %></h2>
+        <h4>Capacity: <%= space.capacity ? space.capacity : " _ " %> persons</h4>
+        <p>
+          <%= space.wifi ? "Wifi available" : "No Wifi" %> -
+          <%= space.parking ? "Parking available" : "No Parking" %> -
+          <%= space.cleaning ? "Cleaning available" : "Cleaning at your charge" %> -
+          <%= space.bathrooms ? "#{space.bathrooms} available" : "No bathrooms" %>
+        </p>
+      </div>
+
+      <div class="card-price">
+        <h4>
+           MXN <%= space.price %>
+        </h4>
+        <p>per night</p>
+      </div>
+  <!--  link_to "", space_path(space), { class: "card-link" } %> -->
+    </div>
+  <% end %>
+<% end %>
+
