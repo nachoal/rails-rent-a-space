@@ -5,13 +5,14 @@
 
 ## 🚨 PENDING:
 
-* [ ] **Andy:** Create static page (About) with info of the app features and team (like on kitt's profile page)
 * [ ] **Sophie:** Improve our website design.
 * [ ] **Everyone:** Create good demo user stories.
 * [ ] **Everyone:** Practice demo! 
 * [ ] **Everyone:** BE HAPPY 😄
 ## ✅ DONE:
 
+* [X] Create static page (About) with info of the app features and team (like on kitt's profile page)
+* [X] Add dynamic total calculation using .js in the place choose day form partial
 * [X] Form logic to display appropiate form (3 different display)
 * [X] Improve search page and structure 
 * [X] Add my places (as a renter) row with cards on user show page

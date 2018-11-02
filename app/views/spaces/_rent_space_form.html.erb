@@ -1,13 +1,23 @@
 <div class="rentals-form">
   <div class="rentals-form-title">
-    <h2 class="space_price">MXN <%= @space.price %> per night</h2>
+    <h2 class="space_price"><span id="space-price"><%= number_with_delimiter(@space.price, delimiter: ',') %></span> MXN per night</h2>
     </div>
   </div>
   <div>
     <%= simple_form_for([@space, @rental]) do |f| %>
     <%= f.input :start_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
     <%= f.input :end_date, wrapper_html: { class: 'flex-select' }, as: :date, html5: true %>
-    <%= f.button :submit, "Book", :class => "btn btn-primary" %>
+    <%= f.button :submit, "Book", class: "btn btn-primary", style: "margin-bottom: 20px;" %>
     <% end %>
+    <div id="loader-4">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </div>
+    <div id="total">
   </div>
 </div>
+
+<%= javascript_pack_tag "calc" %>
+    
