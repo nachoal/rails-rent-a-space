@@ -1,43 +1,81 @@
-<div class="row">
-  <div class="col-md-6">
-    <h3><%= @user.email %></h3>
-    <h4>My rented spaces:</h4>
-    <ul>
-      <% if @user.rentals.any? %>
-        <% @user.rentals.each do |rental| %>
-        <li><%= rental %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= cl_image_tag(@user.photo, width: 260, height: 260,crop: :fill, style:"margin-top: 30px") %>
+      <div class="btn btn-block btn-primary btn-lg" style="margin-top:20px;"><%= link_to("Edit your account", edit_user_registration_path,style:"color:white;") %></div>
+      <div class="panel panel-default" style="margin-top: 20px;">
+        <div class="panel-heading">
+          <div class="panel-title">Account Info:</div>
+        </div>
+        <div class="panel-body">
+          <p>Address:   <%= @user.address.nil? ? "<i class='fas fa-times-circle' style='background-color:red;'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+          <p>Photo:   <%= @user.photo.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+          <p>City:   <%= @user.city.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+          <p>Country:   <%= @user.country.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+          <p>Phone:   <%= @user.phone.nil? ? "<i class='fas fa-times-circle' style='color:red'></i>".html_safe : "<i class='fas fa-check-circle' style='color:green;'></i>".html_safe %></p>
+        </div>
+      </div>
+      <div class="btn btn-block btn-success btn-lg"><a href="#new-place" style="color:white">Add a place to rent</a></div>
+    </div>
+    <div class="col-md-9">
+      <h3>My Profile:</h3>
+      <h6><strong><%= @user.city %>, <%= @user.country %>. Joined in <%= @user.created_at.strftime("%B %Y") %></strong></h6>
+      <h4>Rented spaces (<%= @user.rentals.size %>)</h4>
+      <div class="row">
+        <% if @user.rentals.any? %>
+          <% @user.rentals.each do |rental| %>
+            <div class="col-md-4">
+              <div class="card-renting" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= rental.space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(rental.space.photo) %>);">
+                <div class="card-description-renting">
+                  <h2><%= rental.space.name %></h2>
+                </div>
+                <a class="card-link" href="#" ></a>
+                <%= link_to("", space_path(rental.space), class: "card-link") %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>You don't have any rented spaces yet. You should rent one! </p>
         <% end %>
-      <% else %>
-        <p>You don't have any rented spaces yet. You should rent one! </p>
+      </div>
+      <h4>Spaces that you have for rent (<%= @user.spaces.size %>)</h4>
+      <% @user.spaces.each do |space| %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), 
+            url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>);">
+          <div class="card-category">
+            <% if space.rented? %>
+              <strong>Currently rented by <%= space.rentals[0].user.email %></strong>
+            <% else  %>
+              <strong>Available!</strong>
+            <% end %>
+          </div>
+          <div class="card-description">
+            <h2><%= space.name %> | <strong>$ <%= number_with_delimiter(space.price, delimiter: ',') %> per night</strong></h2>
+            <p><%= space.description %></p>
+          </div>
+          <%= space.rented? ? cl_image_tag(space.rentals[0].user.photo, class: "card-user") : "" %>
+          <a class="card-link" href="#" ></a>
+        </div>
       <% end %>
-    </ul>
-    <% if @user.spaces.any? %>
-      <h3>Places that you have for rent:</h3>
-      <ul>
-        <% @user.spaces[0..(@spaces.size - 1)].each do |space| %>
-          <li>
-            <p><strong>Address:</strong><%= space.address %> <strong>| Description:</strong> <%= space.description %> <strong>Country:</strong><%= space.country%> </p>
-            <p><%= link_to("Edit", edit_user_space_path(@user, space)) %></p>
-          </li>
-        <% end %>
-      </ul>
-    <% else  %>
-      <p>You have not created any spaces for rent. You should create one!</p>
-    <% end  %>
+    </div>  
   </div>
-  <div class="col-md-6">
-      <h3>Add a new place for rent:</h3>
-      <%= simple_form_for [@user, @space] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :city %>
-        <%= f.input :country %>
-        <%= f.input :capacity %>
-        <%= f.input :description %>
-        <%= f.input :price %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.button :submit, class: "btn btn-success" %>
-      <% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h3 id="new-place">Add a new place for rent:</h3>
+        <%= simple_form_for [@user, @space] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :city %>
+          <%= f.input :country %>
+          <%= f.input :capacity %>
+          <%= f.input :description %>
+          <%= f.input :price %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit, class: "btn btn-success" %>
+        <% end %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Space < ApplicationRecord
   belongs_to :user
-
+  has_many :rentals
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
@@ -18,6 +18,18 @@ class Space < ApplicationRecord
 
   geocoded_by :address_geo
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def self.search(search)
+    if search
+      self.where('name LIKE :name OR description LIKE :name', :name => "%#{search}%")
+    else
+      Space.all
+    end
+  end
+
+  def rented?
+    !rentals.empty?
+  end
 
   def address_geo
     [address, city, country].compact.join(', ')

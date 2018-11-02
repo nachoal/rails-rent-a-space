@@ -1,0 +1,28 @@
+.card-renting {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description-renting {
+  // bottom: 10px;
+  // left: 10px;
+  // align-items: center;
+}
+.card-description-renting h2 {
+  font-size: 32px;
+  font-weight: bolder;
+}
