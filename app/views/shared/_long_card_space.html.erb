@@ -1,4 +1,4 @@
-<% @spaces.each do |space| %>
+<% spaces.each do |space| %>
   <%= link_to space_path(space) do %>
     <div class="flex-card">
       <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= space.photo.file.nil? ? "https://images.unsplash.com/photo-1523527927236-da4036f4f66b" : cloudinary_url(space.photo) %>); border-top-left-radius: 5px; border-bottom-left-radius: 5px">

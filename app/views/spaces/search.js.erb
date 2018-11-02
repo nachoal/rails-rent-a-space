@@ -1,0 +1,9 @@
+document.getElementById('card-results').innerHTML = "";
+var results = document.getElementById('card-results');
+var resultsHTML = '<%= j render 'shared/long_card_space', spaces: @spaces %>';
+results.insertAdjacentHTML('beforeend', resultsHTML);
+var mapElement = document.getElementById('map');
+map.component.removeMarkers();
+mapElement.markMap(<%= @markers.to_json.html_safe %>);
+window.history.pushState("", "", '<%= "http://localhost:3000/search?utf8=%E2%9C%93&search=#{request.parameters[:search]}&commit=Search".html_safe %>');
+// window.location.href = '<%= "http://localhost:3000/search?utf8=%E2%9C%93&search=#{request.parameters[:search]}&commit=Search".html_safe %>';

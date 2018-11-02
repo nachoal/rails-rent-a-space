@@ -57,10 +57,12 @@ class SpacesController < ApplicationController
     @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
 
     @markers = @spaces.map do |venue|
-      {
-        lat: venue.latitude,
-        lng: venue.longitude,
-      }
+      if venue.latitude.present? && venue.longitude.present?
+        {
+          lat: venue.latitude,
+          lng: venue.longitude,
+        }
+      end
     end
   end
 
