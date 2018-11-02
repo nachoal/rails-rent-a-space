@@ -56,7 +56,7 @@ class SpacesController < ApplicationController
     authorize @spaces
     @geo_spaces = Space.where.not(latitude: nil, longitude: nil)
 
-    @markers = @geo_spaces.map do |venue|
+    @markers = @spaces.map do |venue|
       {
         lat: venue.latitude,
         lng: venue.longitude,
