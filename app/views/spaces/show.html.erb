@@ -17,6 +17,22 @@
     <div>
       <h5><strong>Description</strong></h5>
       <p><%= @space.description %></p>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <h4><strong> Venue owner</strong></h4>
+          <div class="col-md-1">
+            <%= image_tag image_path(@space.user.photo_or_default), class: "img-circle", style:"width:100px;"%>
+          </div>
+          <div class="col-md-11">
+            <div class="wrapper" style="margin-left: 15px;">
+              <p><i class="fas fa-home"></i> Renting <%= @space.user.spaces.size %> venues</p>
+              <p>City: <%= @space.user.city %></p>
+              <p>Country: <%= @space.user.country %></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-xs-3 rentals-box">
@@ -29,10 +45,12 @@
     <% end %>
   </div>
 </div>
-
 <div class="container">
   <div class="row">
+
     <div class="col-xs-9">
+      <hr>
+      <h5>Exact location information is provided after a booking is confirmed.</h5>
       <div
         id="map"
         style="width: 100%;
