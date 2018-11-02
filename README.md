@@ -5,10 +5,10 @@
 
 ## 🚨 PENDING:
 
-* [ ] **Sophie:** Improve our website design.
 * [ ] **Everyone:** Create good demo user stories.
 * [ ] **Everyone:** Practice demo! 
 * [ ] **Everyone:** BE HAPPY 😄
+
 ## ✅ DONE:
 
 * [X] Create static page (About) with info of the app features and team (like on kitt's profile page)
