@@ -5,15 +5,19 @@
 
 ## 🚨 PENDING:
 
-* [ ] **Nacho:** Change User show page 
-  * [ ] Add my places (as a renter) row with cards on user show page
-  * [ ] Add rentals row (as a tenant) with cards on user show page 
-* [ ] **Guillaume:** Improve search page and structure 
-  * [ ] Navbar avatar should display user avatar if there's one 
-* [ ] **Sophie:** Form logic to display appropiate form (3 different display)
 * [ ] **Andy:** Create static page (About) with info of the app features and team (like on kitt's profile page)
+* [ ] **Sophie:** Improve our website design
+* [ ] **Everyone:** Create a good demo user story
+* [ ] **Everyone:** Practice demo! 
+* [ ] **Everyone:** BE HAPPY 😄
+
 ## ✅ DONE:
 
+* [X] Form logic to display appropiate form (3 different display)
+* [X] Improve search page and structure 
+* [X] Add my places (as a renter) row with cards on user show page
+* [X] Add rentals row (as a tenant) with cards on user show page 
+* [X] Change User show page 
 * [X] Implement GMAPS to our App
 * [X] Have authorization for the renting of a space
 * [X] Add pending form fields to the User sign up forms
