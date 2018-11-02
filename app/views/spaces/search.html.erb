@@ -2,7 +2,7 @@
   <div class="search-results">
     <div class="row">
       <div class="search-bar">
-        <%= form_tag(search_spaces_path, {method: 'get'}) do %>
+        <%= form_tag(search_spaces_path, {method: 'get', remote: true}) do %>
           <div class="row">
             <div class="col-xs-10">
               <%= text_field_tag :search,
@@ -13,15 +13,16 @@
             </div>
             <div class="col-xs-2">
               <%= submit_tag 'Search',
-                class: "btn btn-primary"
+                class: "btn btn-primary",
+                'data-loading-text' => "<i class='icon-spinner icon-spin icon-large'></i>"
               %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="row">
-      <%= render 'shared/long_card_space' %>
+    <div class="row" id="card-results">
+      <%= render 'shared/long_card_space', spaces: @spaces %>
     </div>
   </div>
 
@@ -30,3 +31,7 @@
     data-markers="<%= @markers.to_json %>"
   ></div>
 </div>
+
+<% content_for :js_pack do %>
+  <%= javascript_pack_tag 'search_loading' %>
+<% end %>
